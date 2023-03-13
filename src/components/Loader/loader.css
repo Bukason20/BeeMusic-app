@@ -1,0 +1,10 @@
+.loader{
+    /* background-color: orange; */
+}
+.loader img{
+   width: 20%; 
+   height: 20%;
+   display: block;
+   margin: auto;
+   /* background-color: blue; */
+}

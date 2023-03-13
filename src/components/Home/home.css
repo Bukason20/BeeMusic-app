@@ -1,0 +1,25 @@
+.home{
+    /* background-color: white; */
+    width: 62%;
+    padding: 10px;
+    position: relative;
+    min-height: 100vh;
+
+}
+.home-header{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    gap: 3rem;
+    width: 100%;
+    margin: 0 0 2rem 0;
+    /* background-color: palegreen; */
+}
+
+
+/* --------------------------MEDIA QUERY FOR SMALL DEVICES------------------------------------------- */
+@media screen and (max-width : 600px){
+    .home{
+        width: 90%;
+    }
+  }
