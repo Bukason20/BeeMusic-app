@@ -4,10 +4,10 @@ import MusicPlayer from "../music-player/MusicPlayer";
 import PlaylistItem from "../PlaylistItem/PlaylistItem";
 import "./playlists.css"
 
-function PlayLists({token, playLists, filterText, searchResults}) {
+function PlayLists({token, playLists, filterText, searchResults,currentSong}) {
     const [active, setActive] = useState()
     const [error, setError] = useState(null)
-    const [currentSong, setCurrentSong] = useState(playLists ? playLists[0].track: "")
+    const [activeSong, setActiveSong] = useState(currentSong)
     const getCurrentIndex =  function() {
         currentSong ? currentSong.map(song => {
             playLists.map((playlist, index) => {
@@ -15,7 +15,15 @@ function PlayLists({token, playLists, filterText, searchResults}) {
                     setCurrentIndex(index)
                 }
             })
-        }) : null
+        }) : ""
+    }
+
+    const millisToMinutes = (millis) => {
+        Number(millis)
+        let minutes = Math.floor(millis/60000)
+        var seconds = ((millis % 60000) / 1000).toFixed(0)
+
+        return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
     }
     
     const getCurrentSong = function(id){
@@ -50,15 +58,29 @@ function PlayLists({token, playLists, filterText, searchResults}) {
                 </div>
                 <div className="playlist-songs">
                    {playLists.map((playlist, index) => (
-                       <PlaylistItem 
-                            key = {index}
-                            index = {index}
-                            playlist = {playlist}
-                            getCurrentSong = {getCurrentSong}
-                            currentSong = {currentSong}
-                       />
+                       <div>
+                       {playlist && currentSong ? (
+                           <div className = {`song  ${activeSong  ? activeSong[0].track.id === playlist.track.id ? "active" : "" : null}`}> 
+                           
+                       
+                       <p id ="song-no">0{index + 1}</p>
+                       <p>{playlist.track.name}</p>
+                       <p>
+                           {playlist.track.artists.map((artist, index) => (
+                           artist.name += " " 
+                           ))}
+                       </p>
+                       <p id = "song-time">{millisToMinutes(playlist.track.duration_ms)}</p>
+               
+                       
+                       </div>) : (
+                           
+                           <p>Code not Showing</p>
+                       )}
+                   </div>
                     ))} 
                 </div>
+                
                 
             </div>
             ) : <Loader />}

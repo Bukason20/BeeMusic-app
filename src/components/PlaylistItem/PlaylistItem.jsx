@@ -10,8 +10,9 @@ function PlaylistItem({playlist, currentSong, index, getCurrentSong}) {
     // console.log(currentSong)
     return (
         <div>
-            {playlist  ? (
-                <div className = {`song ${currentSong ? currentSong[0].track.id === playlist.track.id ? "active" : "" : null}`}> 
+            {playlist && currentSong ? (
+                <div className = {`song`}> 
+                 {/* ${currentSong ? currentSong[0].track.id === playlist.track.id ? "active" : "" : null} */}
             
             <p id ="song-no">0{index + 1}</p>
             <p>{playlist.track.name}</p>

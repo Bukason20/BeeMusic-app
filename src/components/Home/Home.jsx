@@ -7,7 +7,7 @@ import Search from "../Search/Search"
 import FirstTrend from "../FirstTrend/FirstTrend"
 import "./home.css"
 
-function Home({token, playLists}) {
+function Home({token, playLists, currentSong, setCurrentSong}) {
     const [filterText, setFilterText] = useState("");
     const [searchResults, setSearchResults] =useState([]);
 
@@ -43,7 +43,9 @@ function Home({token, playLists}) {
                 token = {token} 
                 playLists = {playLists} 
                 filterText = {filterText} 
-                searchResults = {searchResults} 
+                searchResults = {searchResults}
+                currentSong = {currentSong}
+                setCurrentSong = {setCurrentSong}
             />
             
         </div>

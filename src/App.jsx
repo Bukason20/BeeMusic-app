@@ -21,6 +21,7 @@ function App() {
   const [error, setError] = useState(null)
   const [filterText, setFilterText] = useState("");
   const [searchResults, setSearchResults] =useState([]);
+  const [currentSong, setCurrentSong] = useState()
   
   useEffect(() => {
     const token = window.localStorage.getItem("token")
@@ -45,6 +46,7 @@ function App() {
       .then(data => {
           localStorage.setItem("playlists", JSON.stringify(data.items))
           setPlayLists(JSON.parse(localStorage.getItem("playlists"))) 
+          setCurrentSong(JSON.parse(localStorage.getItem("playlists"))[0])
       })
       .catch(err => setError(err))
   }, [])
@@ -59,7 +61,9 @@ function App() {
             <Route exact path = "/">
               <Home 
                 token = {token}  
-                playLists ={playLists} 
+                playLists ={playLists}
+                currentSong = {currentSong}
+                setCurrentSong = {setCurrentSong} 
               />
             </Route>
             <Route path = "/trends">
