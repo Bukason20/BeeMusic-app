@@ -87,8 +87,13 @@ function MusicPlayer({currentSong, playLists, currentIndex, getCurrentSong,play,
 
                 <div className="volume">
                     <BiVolumeLow />
+                    <input type="range"/>
                     <BiVolumeFull />
                 </div>
+            </div>
+
+            <div className="song-duration">
+                <p>No song Duration</p>
             </div>
            
         </div>

@@ -1,6 +1,6 @@
 .music-player{
     position: fixed;
-    top: 90vh;
+    top: 85vh;
     left: 45%;
     transform: translateX(-50%);
     background-color: white;
@@ -22,7 +22,7 @@
     align-items: center;
     gap: 0.5rem;
     margin-right: 0 ;
-    
+    height: fit-content;
 }
 .first-utils button{
     font-size: 15px;
@@ -39,4 +39,16 @@
 }
 .pause{
     display: none;
+}
+.volume{
+    display: flex;
+    align-items: center;
+}
+.volume input{
+    width: 3rem;
+    height: 1rem;
+}
+.song-duration{
+    text-align: center;
+    margin-top:  0.5rem;
 }

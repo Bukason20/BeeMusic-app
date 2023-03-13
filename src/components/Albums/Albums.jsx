@@ -1,6 +1,6 @@
 function Albums() {
     return (
-        <div>
+        <div className = "albums">
             <h2>You Have No Album Here</h2>
         </div>
     )
