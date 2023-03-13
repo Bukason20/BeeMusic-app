@@ -27,8 +27,9 @@ function MusicPlayer({currentSong, playLists, currentIndex, getCurrentSong,play,
 
     const audioSrc = currentSong ? currentSong.track.preview_url : ""
 
-    const audioRef = useRef(new Audio(playLists[0].track.preview_url))
+    const audioRef = useRef(new Audio("https://p.scdn.co/mp3-preview/a23e460aac33414336dc273cf3f246bec41aa499?cid=d121e5c66e3a438a961f65350974825d"))
     console.log(audioRef)
+    // console.log(playLists[0].track.preview_url)
 
     const playMusic = () => {
             // --timer
